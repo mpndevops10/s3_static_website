@@ -79,5 +79,3 @@ resource "aws_s3_object" "upload-files" {
   source       = "./uploads/${each.value}"
   content_type = each.value
   acl          = "public-read"
-
-}

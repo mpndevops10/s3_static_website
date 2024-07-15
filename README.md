@@ -1,4 +1,4 @@
-<This repository contains files to create an S3 static website using terraform.>
+## This repository contains files to create an S3 static website using terraform.
 
 ## Steps involve:
   # 1: Create a bucket
