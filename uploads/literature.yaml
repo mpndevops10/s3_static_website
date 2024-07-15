@@ -1,0 +1,83 @@
+What is Amazon S3?: 
+Amazon S3 is a Simple Storage Service in AWS that stores files of different types 
+like Photos, Audio, and Videos as Objects providing more scalability and security to. 
+It allows the users to store and retrieve any amount of data at any point in time 
+from anywhere on the web. 
+It facilitates features such as extremely high availability, 
+security, and simple connection to other AWS Services.
+
+>S3:
+  - Bucket names are globally unique
+  - Names can range from 3 to 63 characters all lowercase, and underscores
+  - Start with a lowercase letter or a number
+  - Can't be ip address formatted
+  - You can create up to 100 soft limit and 1000 hard limit per account by openning a ticket
+  - You can store unlimitted number of objects in a bucket with object size ranging from 0 bytes to 5TB 
+  - Objects are in key value pairs. Key=Name, Value=Data
+Static website hosting:
+S3 buckets can also be used for static website hosting.
+It allows you the burden to manage servers.
+You can use Route53 to answer DNS querries,
+Certificate manager (ACM) to encrypt communication between end users and your website.
+Cloudfron for contents delivery.
+When end users sent requests to your website, route53 is used to answer the DNS querries.
+Certificate manager encrypts the connection whille cloudfront helps serve 
+the contents from an edge location thereby reducing latency.
+
+S3 Object Lock:
+You can use S3 Object Lock to store objects using a write-once-read-many (WORM) model. It can help you prevent 
+objects from being deleted or overwritten for a fixed amount of time or indefinitely. You can use S3 Object Lock 
+to meet regulatory requirements that require WORM storage, or add an extra layer of protection against object changes and deletion.  
+
+Amazon S3 Access Points:
+Amazon S3 Access Points, a feature of S3, simplifies managing data access at scale for applications 
+using shared data sets on S3. Access points are unique hostnames that customers create to enforce 
+distinct permissions and network controls for any request made through the access point.
+command:
+  aws s3control create-access-point --name secretcats --accountid 456788765456 --bucket catpics
+  questions:
+1. Which type of S3 encryption shows as AES256 --> SSE-S3
+2. Which S3 Storage class is suitable for data which is easily replaced (choose the most cost effective)
+   --> S3 One Zone-IA
+3. Which Object class in S3 is ideal for uncertain access and low admin overhead
+   --> S3 Intelligent-Tiering
+4. What is the cheapest S3 storage class for important data which need to be retained for long periods and is rarely accessed
+   --> S3 Glacier
+5. Which steps are required to allow an S3 bucket to operate as a website (choose all which apply)
+   - Upload web files
+   - Set index and error documents
+   - Enable static web hosting
+   - Disable block public access settings
+   - Add a bucket policy
+6. What S3 feature allows objects storage classes to be changed and objects deleted automatically
+   --> S3 Lifecycle policies
+7. What is the default limit of the number of S3 buckets in an AWS account
+   --> 100
+8. How large can an object in S3 be ? and what (if any) limits are there on the number of objects in a bucket
+   --> Object Max = 5TB, No Object bucket limit 
+9. What S3 feature needs to be enabled to allow Cross-Region Replication (CRR)
+   --> Versioning
+10. What S3 feature can be used to grant external accounts access to an S3 bucket
+   --> Resource Policy
+11.Which type of encryption allows for role separation where an S3 Full Admin might not be able to decrypt objects
+   --> SSE-KMS
+12.Which type of encryption is where AWS perform encryption operations but DON'T hold any keys
+   --> SSE-C                
+13. What type of encryption means AWS perform the encryption operations and handle key creation & management
+   --> SSE-S3
+14.What feature is required to allow CRR to function
+   --> Versioning
+   Hints:
+   With cross-region replication, every object uploaded to an S3 bucket is automatically replicated to a destination bucket in a different AWS region that you choose.
+   For example, you can use cross-region replication to provide lower-latency data access in different geographic regions.
+
+15.What happens when an object is deleted in a bucket with versioning enabled
+   --> A delete marker is created.
+   What is a delete marker?
+
+   A delete marker in Amazon S3 is a placeholder (or marker) for a versioned object that was specified in a simple DELETE request.
+   A simple DELETE request is a request that doesn't specify a version ID. 
+   Because the object is in a versioning-enabled bucket, the object is not deleted.
+
+arn:aws:s3::175985118028:accesspoint/m1imx4qwgpie8.mrap
+
